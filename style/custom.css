@@ -1,0 +1,61 @@
+/* Custom CSS
+-------------------------*/
+a.logo {
+    background: url([[setting:logo]]) no-repeat 0 0;
+    display: block;
+    /*float: left;*/
+    height: 75px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.dir-rtl a.logo {
+    background: url([[setting:logo]]) no-repeat 100% 0;
+    display: block;
+    float: right;
+}
+
+/* Custom CSS Settings
+-------------------------*/
+[[setting:customcss]]
+
+body {
+    background: url([[pix:theme|bg]]) repeat 0 0;
+}
+
+.navbar .navbar-inner a.brand {
+    background: url([[pix:theme|logo]]) no-repeat 0 center;
+    width: 175px;
+    margin-left: 0;
+}
+
+/*.bold,
+.warning,
+.errorbox .title,
+.pagingbar .title,
+.pagingbar .thispage,*/
+.headingblock {
+    font-weight: normal;
+}
+
+.block_navigation .block_tree .active_tree_node {
+    font-weight: normal;
+}
+
+.block_recent_activity .activitydate,
+.block_recent_activity .activityhead {
+    text-align: inherit;
+}
+
+.block_quiz_results {
+    text-align: inherit;
+}
+
+.block_messages .content .info {
+    text-align: inherit;
+}
+
+.path-mod-book .book_toc_numbered {
+    font-size: inherit;
+}

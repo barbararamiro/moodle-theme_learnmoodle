@@ -1,0 +1,203 @@
+/* Custom CSS
+-------------------------*/
+a.logo {
+    background: url([[setting:logo]]) no-repeat 0 0;
+    display: block;
+    /*float: left;*/
+    height: 75px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.dir-rtl a.logo {
+    background: url([[setting:logo]]) no-repeat 100% 0;
+    display: block;
+    float: right;
+}
+
+/* Custom CSS Settings
+-------------------------*/
+[[setting:customcss]]
+
+/*
+@font-face {
+    font-family: 'Open Sans'; 
+    font-weight: normal;
+    font-style: normal;
+    src: url([[font:theme|OpenSans-Regular.ttf]]);    
+}
+
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(128, 128, 128);
+    background-color: rgb(60, 66, 75);
+    background: url([[pix:theme|bg]]) repeat 0 0;
+}
+
+a {
+    color: rgb(236, 89, 35);
+}
+
+a:hover, a:focus {
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    color: rgb(236, 89, 35);
+}
+
+h1 {
+    font-size: 32px;
+}
+h2 {
+    font-size: 28px;
+}
+h3 {
+    font-size: 24px;
+}
+h4 {
+    font-size: 20px;
+}
+h5 {
+    font-size: 16px;
+}
+h6 {
+    font-size: 12px;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+   color: inherit;
+}
+*/
+/*.bold,
+.warning,
+.errorbox .title,
+.pagingbar .title,
+.pagingbar .thispage,*/
+/*.headingblock {
+    font-weight: normal;
+}
+
+.navbar-inner {
+    background-color: rgb(37, 43, 54);
+    background-image:none;
+    border: 1px solid rgb(85, 85, 85);
+}
+.navbar .brand {
+    font-size: 24px;
+    text-shadow: none;
+}
+.navbar .btn-navbar {
+    background-color: rgb(27, 33, 44);
+    background-image: none;
+}
+.navbar .btn-navbar:hover,
+.navbar .btn-navbar:focus,
+.navbar .btn-navbar:active,
+.navbar .btn-navbar.active,
+.navbar .btn-navbar.disabled, 
+.navbar .btn-navbar[disabled] {
+    color: rgb(255, 255, 255);
+    background-color: rgb(17, 23, 34);
+}
+.navbar .nav > li > a {
+    color: rgb(119, 119, 119);
+    text-decoration: none;
+    text-shadow: none;   
+}
+.navbar .nav li.dropdown > .dropdown-toggle .caret {
+    border-top-color: rgb(119, 119, 119);
+    border-bottom-color: rgb(119, 119, 119);
+}
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:focus {
+    color: rgb(153, 153, 153);
+}
+.navbar .nav li.dropdown > a:hover .caret,
+.navbar .nav li.dropdown > a:focus .caret {
+    border-top-color:  rgb(153, 153, 153);
+    border-bottom-color:  rgb(153, 153, 153);
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+    color: rgb(153, 153, 153);
+    background-color: rgb(17, 23, 34);
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.active > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+    border-top-color: rgb(153, 153, 153);
+    border-bottom-color: rgb(153, 153, 153);
+}
+.nav-collapse .nav > li > a:hover,
+.nav-collapse .nav > li > a:focus,
+.nav-collapse .dropdown-menu a:hover,
+.nav-collapse .dropdown-menu a:focus {
+    background-color: rgb(17, 23, 34);
+}
+.nav-collapse .nav > li > a,
+.nav-collapse .dropdown-menu a {
+    font-weight: normal;
+}
+.breadcrumb {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(227, 227, 227);
+}
+.breadcrumb > li > a {
+    color: rgb(99, 99, 99);
+}
+.block {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(0, 155, 221);
+    color: #2A4480;
+}
+.block .header .title h2,
+.block h3.main {
+    font-weight: normal;
+}
+.block a {
+    color: rgb(99, 99, 99);
+}
+.block .block_tree .tree_item {
+    color: rgb(99, 99, 99);
+}
+.block_navigation .block_tree .active_tree_node {
+    font-weight: normal;
+    color: red;
+}
+.block_recent_activity .activitydate,
+.block_recent_activity .activityhead {
+    text-align: inherit;
+}
+.block_quiz_results {
+    text-align: inherit;
+}
+.block_messages .content .info {
+    text-align: inherit;
+}
+#region-main {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 4px 4px 4px 4px;
+    padding: 20px;
+}
+.course-content ul li.section.main {
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+.course-content .section-summary {
+    border: none;
+}
+.course-content .single-section .section-navigation .title {
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 40px;
+    color: rgb(236, 89, 35);
+}
+.path-mod-book .book_toc_numbered {
+    font-size: inherit;
+}
+*/

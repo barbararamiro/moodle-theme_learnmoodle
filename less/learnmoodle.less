@@ -1,0 +1,158 @@
+@import "../../bootstrapbase/less/moodle";
+
+
+// Grays
+// -------------------------
+@grayLight:             #808080;
+
+// Accent colors
+// -------------------------
+@blueDark:              #2A4480;
+
+
+// Scaffolding
+// -------------------------
+@bodyBackground:        #dddde3;
+@textColor:             @grayLight;
+@border:                1px solid darken(@wellBackground, 12%);
+
+
+// Links
+// -------------------------
+// @linkColor:             #ec5923;
+@linkColor:             #ff6600;
+@linkColorHover:        darken(@linkColor, 10%);
+
+
+// Typography
+// -------------------------
+@font-face {
+    font-family: 'Open Sans'; 
+    // Embedding font on moodle 2.6
+    // src: url([[font:theme|OpenSans-Light-webfont.woff]]);
+    // Embedding font on moodle 2.5
+    src: url('learnmoodle/fonts/OpenSans-Light-webfont.woff') format('woff');
+}
+@sansFontFamily:        "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@headingsFontWeight:    normal;
+
+
+// Wells
+// -------------------------
+@wellBackground:                  @white;
+
+
+// Navbar
+// -------------------------
+// @navbarHeight:                    40px;
+@navbarBackgroundHighlight:       #252b36;
+@navbarLinkColorHover:            @grayLighter;
+@navbarLinkColorActive:           @grayLighter;
+@navbarLinkBackgroundHover:       darken(@navbarBackground, 1%);
+@navbarLinkBackgroundActive:      darken(@navbarBackground, 1%);
+@navbarBrandColor:                @linkColor;
+
+@media (max-width: 979px) {
+    .nav-collapse {
+        .nav li a {
+            color: @navbarLinkColor;
+            font-weight: normal;
+        }
+        .nav li a:hover,
+        .nav li a:focus,
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus,
+        .dropdown-menu a:active,
+        .dropdown-submenu:hover > a,
+        .dropdown-submenu:focus > a,
+        .dropdown-submenu a:focus,
+        .dropdown-submenu a:hover,
+        .dropdown-submenu a:active,
+        .dropdown-menu li a:hover,
+        .dropdown-menu li a:focus,
+        .dropdown-menu li a:active 
+        {
+            color: @navbarLinkColorHover;
+            background-color: @navbarLinkBackgroundHover;
+            background-image: none;
+        }
+    }
+}
+
+
+// Page header
+// -------------------------
+#page-header h1 {
+  color: @linkColor;
+}
+
+
+// Breadcrumb
+// -------------------------
+.breadcrumb {
+    background-color: @white;
+    border: @border;
+    > li {
+        > a {
+        color: @grayLight;
+        }
+    }
+}
+
+
+// Block
+// -------------------------
+.block {
+    border: 1px solid darken(@wellBackground, 12%);
+    box-shadow: none;
+    color: @blueDark;
+}
+
+.block .header .title h2,
+.block h3.main {
+    font-weight: normal;
+    color: @grayLight;
+}
+
+.block a,
+.block .block_tree .tree_item {
+    color:@grayLight;
+}
+
+#region-main {
+    background-color: @white;
+    border: 1px solid darken(@wellBackground, 12%);
+    border-radius: @baseBorderRadius;
+    padding: 20px;
+}
+
+
+// Course
+// -------------------------
+.course-content .section-summary {
+    border: none;
+}
+
+.course-content .single-section .section-navigation .title {
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 40px;
+    clear: both;
+    color: @linkColor;
+    padding: 30px 0 20px 0;
+}
+
+.course-content ul li.section.main {
+    border-bottom: 1px solid @grayLighter;
+}
+
+.coursebox > .info > .name a {
+    background-position: 0 13px;
+}
+
+.coursebox > .info > .name,
+.coursebox .content .teachers,
+.coursebox .content .courseimage,
+.coursebox .content .coursefile {
+    width:100%;
+}
