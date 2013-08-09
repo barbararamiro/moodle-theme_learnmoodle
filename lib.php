@@ -38,6 +38,7 @@
  * @return string The parsed CSS The parsed CSS.
  */
 function theme_learnmoodle_process_css($css, $theme) {
+    global $CFG;
 
     // Set the background image for the logo.
     $logo = $theme->setting_file_url('logo', 'logo');
@@ -50,6 +51,9 @@ function theme_learnmoodle_process_css($css, $theme) {
         $customcss = null;
     }
     $css = theme_learnmoodle_set_customcss($css, $customcss);
+
+    // Hack to avoid the use of relative URLs for fonts in CSS files.
+    $css = str_replace('[[fontsfolder]]', $CFG->httpswwwroot . '/theme/learnmoodle/fonts', $css);
 
     return $css;
 }
