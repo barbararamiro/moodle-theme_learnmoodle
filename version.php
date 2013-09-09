@@ -33,6 +33,8 @@ defined('MOODLE_INTERNAL') || die;
 $plugin->version   = 2013050100;
 $plugin->requires  = 2013050100;
 $plugin->component = 'theme_learnmoodle';
+$plugin->release = '1.0';
+$plugin->maturity = MATURITY_STABLE;
 $plugin->dependencies = array(
     'theme_bootstrapbase'  => 2013050100,
 );

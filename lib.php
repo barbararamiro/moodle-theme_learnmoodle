@@ -38,6 +38,7 @@
  * @return string The parsed CSS The parsed CSS.
  */
 function theme_learnmoodle_process_css($css, $theme) {
+
     global $CFG;
 
     // Set the background image for the logo.
@@ -128,7 +129,7 @@ function theme_learnmoodle_set_customcss($css, $customcss) {
  *      - footnote HTML to use as a footnote. By default ''.
  */
 function theme_learnmoodle_get_html_for_settings(renderer_base $output, moodle_page $page) {
-    global $CFG;
+    global $CFG, $SITE;
     $return = new stdClass;
 
     $return->navbarclass = '';
@@ -136,10 +137,11 @@ function theme_learnmoodle_get_html_for_settings(renderer_base $output, moodle_p
         $return->navbarclass .= ' navbar-inverse';
     }
 
-    if (!empty($page->theme->settings->logo)) {
-        $return->heading = html_writer::link($CFG->wwwroot, '', array('title' => get_string('home'), 'class' => 'logo'));
+    $heading = $output->page_heading('h1');
+    if ($heading === html_writer::tag('h1', $SITE->fullname)) {
+        $return->heading = '';
     } else {
-        $return->heading = $output->page_heading();
+        $return->heading = $heading;
     }
 
     $return->footnote = '';

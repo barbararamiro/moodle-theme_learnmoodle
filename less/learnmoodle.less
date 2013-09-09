@@ -1,41 +1,69 @@
 @import "../../bootstrapbase/less/moodle";
 
 
-// Grays
-// -------------------------
-@grayLight:             #808080;
-
 // Accent colors
 // -------------------------
-@blueDark:              #2A4480;
+@orangeDark:            #ff6500;
+@blueBright:            #0000ff;
+@blueGray:              #4e5973;
+@blueDarker:            #333366;
+@blueDarkest:           #252b36;
 
 
 // Scaffolding
 // -------------------------
 @bodyBackground:        #dddde3;
-@textColor:             @grayLight;
+@textColor:             @blueDarker;
 @border:                1px solid darken(@wellBackground, 12%);
 
 
 // Links
 // -------------------------
-// @linkColor:             #ec5923;
-@linkColor:             #ff6600;
-@linkColorHover:        darken(@linkColor, 10%);
+@linkColor:             @orangeDark;
+@linkColorHover:        lighten(@linkColor, 10%);
 
 
 // Typography
 // -------------------------
 @font-face {
-    font-family: 'Open Sans'; 
+    font-family: 'Open Sans';
     // Embedding font on moodle 2.6
     // src: url([[font:theme|OpenSans-Light-webfont.woff]]);
-    // Embedding font on moodle 2.5
-    src: url('[[fontsfolder]]/OpenSans-Light-webfont.woff') format('woff');
-
+    // Embedding font on moodle 2.5 - various formats for cross-browser support.
+    src: url('[[fontsfolder]]/OpenSans-Light-webfont.eot');
+    src: url('[[fontsfolder]]/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('[[fontsfolder]]/OpenSans-Light-webfont.woff') format('woff'),
+         url('[[fontsfolder]]/OpenSans-Light-webfont.ttf') format('truetype'),
+         url('[[fontsfolder]]/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
 }
+
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url('[[fontsfolder]]/OpenSans-Regular-webfont.eot');
+    src: url('[[fontsfolder]]/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('[[fontsfolder]]/OpenSans-Regular-webfont.woff') format('woff'),
+         url('[[fontsfolder]]/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('[[fontsfolder]]/OpenSans-Regular-webfont.svg#open_sanslight') format('svg');
+}
+
 @sansFontFamily:        "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @headingsFontWeight:    normal;
+
+.headingblock {
+    font-weight: @headingsFontWeight;
+}
+
+h1 { font-size: round(@baseFontSize * 2.30); } // ~32px
+h2 { font-size: round(@baseFontSize * 2.00); } // ~28px
+h3 { font-size: round(@baseFontSize * 1.70); } // ~24px
+h4 { font-size: round(@baseFontSize * 1.40); } // ~20px
+h5 { font-size: round(@baseFontSize * 1.15); } // ~16px
+h6 { font-size: round(@baseFontSize * 0.85); } // ~12px
+
+h1 small { font-size: round(@baseFontSize * 1.70); } // ~24px
+h2 small { font-size: round(@baseFontSize * 1.40); } // ~20px
+h3 small { font-size: round(@baseFontSize * 1.15); } // ~16px
+h4 small { font-size: round(@baseFontSize * 0.85); } // ~12px
 
 
 // Wells
@@ -45,48 +73,74 @@
 
 // Navbar
 // -------------------------
-// @navbarHeight:                    40px;
-@navbarBackgroundHighlight:       #252b36;
+@navbarBackgroundHighlight:       @blueDarkest;
+@navbarText:                      #b6b6b6;
+@navbarLinkColor:                 @navbarText;
 @navbarLinkColorHover:            @grayLighter;
 @navbarLinkColorActive:           @grayLighter;
 @navbarLinkBackgroundHover:       darken(@navbarBackground, 1%);
-@navbarLinkBackgroundActive:      darken(@navbarBackground, 1%);
+@navbarLinkBackgroundActive:      @navbarLinkBackgroundHover;
 @navbarBrandColor:                @linkColor;
+@navbarAccentColor:               lighten(@linkColor, 10%);
 
-@media (max-width: 979px) {
-    .nav-collapse {
-        .nav li a {
-            color: @navbarLinkColor;
-            font-weight: normal;
+.navbar-fixed-top,
+.navbar-fixed-bottom,
+.navbar-static-top {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.navbar {
+    .nav {
+        margin-top:9px;
+        .navbar-text a {
+            color: @navbarAccentColor;
         }
-        .nav li a:hover,
-        .nav li a:focus,
-        .dropdown-menu a:hover,
-        .dropdown-menu a:focus,
-        .dropdown-menu a:active,
-        .dropdown-submenu:hover > a,
-        .dropdown-submenu:focus > a,
-        .dropdown-submenu a:focus,
-        .dropdown-submenu a:hover,
-        .dropdown-submenu a:active,
-        .dropdown-menu li a:hover,
-        .dropdown-menu li a:focus,
-        .dropdown-menu li a:active 
-        {
-            color: @navbarLinkColorHover;
-            background-color: @navbarLinkBackgroundHover;
-            background-image: none;
+    }
+    .navbar-inner a.brand {
+        width: 232px;
+        min-height:48px;
+        background-image: url([[pix:theme|logo-learn-white]]);
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 5px 20px;
+
+        span {
+            display: none;
         }
     }
 }
 
-
-// Page header
+// Dropdowns
 // -------------------------
-#page-header h1 {
-  color: @linkColor;
+@dropdownBackground:            @navbarLinkBackgroundHover;
+@dropdownLinkColor:             @navbarText;
+@dropdownLinkBackgroundActive:  lighten(@navbarBackground, 15%);
+@dropdownLinkColorHover:        @white;
+.dropdown-submenu > a:after {
+  border-left-color: @dropdownLinkColor;
 }
 
+body {
+    background: url([[pix:theme|bg]]) repeat 0 0;
+}
+
+#page {
+    padding-top: 10px;
+}
+
+.empty-region-side-pre {
+    #region-main {
+        .pull-right; //fixes pages with no blocks on left (messages).
+    }
+}
+
+#region-main {
+    background-color: @white;
+    border: 1px solid darken(@wellBackground, 12%);
+    border-radius: @baseBorderRadius;
+    padding: 20px;
+}
 
 // Breadcrumb
 // -------------------------
@@ -95,36 +149,106 @@
     border: @border;
     > li {
         > a {
-        color: @grayLight;
+        color: @textColor;
         }
     }
 }
 
+#page-navbar {
+    input[type="submit"] {
+        margin-bottom: 0px;
+        margin-right: 5px;
+    }
+    .coursesearchbox {
+        input[type="submit"] {
+            margin-bottom: 10px;
+        }
+    }
+}
 
 // Block
 // -------------------------
 .block {
     border: 1px solid darken(@wellBackground, 12%);
     box-shadow: none;
-    color: @blueDark;
 }
 
 .block .header .title h2,
 .block h3.main {
     font-weight: normal;
-    color: @grayLight;
+    color: @textColor;
 }
 
-.block a,
-.block .block_tree .tree_item {
-    color:@grayLight;
+.block_navigation a,
+.block_settings a {
+    color: @textColor;
 }
 
-#region-main {
-    background-color: @white;
-    border: 1px solid darken(@wellBackground, 12%);
-    border-radius: @baseBorderRadius;
-    padding: 20px;
+.block_navigation .block_tree .active_tree_node {
+    font-weight: normal;
+}
+
+.block_news_items .content {
+    .newlink {
+        padding-bottom: 10px;
+    }
+    ul li {
+        border-top: 1px rgba(0,0,0,0.05) solid;
+        padding: 2px;
+        display: table;
+        width: 100%;
+        .info {
+            display: table-header-group;
+        }
+        .date {
+            font-size: @fontSizeSmall;
+            display: inline;
+        }
+        .name {
+            font-size: @fontSizeSmall;
+            padding-left: 1ex;
+            display: inline;
+        }
+    }
+    .footer {
+        padding-top: 10px;
+        padding-left: 0px;
+    }
+}
+
+.block_calendar_upcoming .content {
+    .date {
+        padding-left: 22px;
+    }
+    .footer {
+        padding-top: 10px;
+        padding-left: 0px;
+    }
+}
+
+.block_rss_client {
+    .content li {
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid #ddd;
+        .border-radius(@baseBorderRadius);
+        .link {
+            font-weight: inherit;
+        }
+    }
+}
+
+.block_recent_activity .activitydate,
+.block_recent_activity .activityhead {
+    text-align: inherit;
+}
+
+.block_quiz_results {
+    text-align: inherit;
+}
+
+.block_messages .content .info {
+    text-align: inherit;
 }
 
 
@@ -147,13 +271,329 @@
     border-bottom: 1px solid @grayLighter;
 }
 
-.coursebox > .info > .name a {
-    background-position: 0 13px;
+.coursebox {
+    .info {
+        .name {
+            width: 100%;
+            a {
+                /*background-position: 0 13px; //only for smaller media widths.*/
+            }
+        }
+    }
+    .content {
+        .courseimage {
+            width: 0; //so just whatever the image's width is takes effect.
+        }
+    }
 }
 
-.coursebox > .info > .name,
-.coursebox .content .teachers,
-.coursebox .content .courseimage,
-.coursebox .content .coursefile {
-    width:100%;
+.courses .coursebox.even {
+    background-color:transparent;
+}
+
+.courses .coursebox:hover,
+.course_category_tree .courses > .paging.paging-morelink:hover {
+    background-color:transparent;
+}
+
+.topic {
+    .author {
+        font-size: round(@fontSizeSmall);
+    }
+}
+.fullpost {
+    margin-top: 10px;
+}
+
+
+// Modules
+// -------------------------
+.moodle-dialogue-base .moodle-dialogue {
+    z-index: 4400;
+}
+
+.path-mod-page .modified {
+    font-size: @fontSizeSmall;
+}
+
+.path-mod-book .book_toc_numbered {
+    font-size: inherit;
+}
+
+.path-mod-forum .forumheaderlist {
+    thead .header {
+        white-space: normal;
+        vertical-align: top;
+    }
+    thead .header.lastpost {
+        text-align: right;
+    }
+    .discussion {
+        .author, .replies, .lastpost {
+            white-space: normal;
+        }
+        .replies {
+            text-align: center;
+        }
+        .topic, .topic.starter, .picture, .author, .replies, .lastpost {
+            vertical-align: top;
+        }
+    }
+}
+
+.forumpost {
+    .maincontent {
+        .left {
+            position: absolute;
+        }
+    }
+}
+
+.path-mod-quiz #tablecontainer .no-overflow {
+    overflow: scroll;
+}
+
+//the iframe is the limit of this selector before tinymce's content.css should be used
+#page-content .mceLayout tbody tr td.mceIframeContainer iframe {
+    width: auto !important;
+}
+
+
+// Chat
+// -------------------------
+.yui-skin-sam .yui-layout  {
+    background: #dddde3 url([[pix:theme|bg]]) repeat 0 0;
+}
+
+.yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd-nohd,
+.yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd-noft,
+.yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd,
+.yui-skin-sam .yui-layout-unit-right,
+.yui-skin-sam .yui-layout-unit-bottom {
+    border: 0;
+}
+
+.yui-skin-sam .yui-layout-unit-right {
+    background-color: darken(@navbarBackgroundHighlight, 5%);
+    #gradient > .vertical(@navbarBackgroundHighlight, darken(@navbarBackgroundHighlight, 5%));
+}
+
+.yui-skin-sam .yui-layout-unit-bottom {
+    background-color: darken(@navbarBackgroundHighlight, 5%);
+}
+
+.yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd {
+    background-color: transparent;
+}
+
+#chat-input-area table.generaltable,
+#chat-input-area table.generaltable td.cell {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    a {
+        color: lighten(@linkColor, 25%);
+        display: none;
+    }
+}
+
+#chat-userlist {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    #users-list {
+        border-top: 1px solid darken(@navbarBackgroundHighlight, 8%);
+        border-bottom: 1px solid lighten(@navbarBackgroundHighlight, 5%);
+        li {
+            border-top: 1px solid lighten(@navbarBackgroundHighlight, 5%);
+            border-bottom: 1px solid darken(@navbarBackgroundHighlight, 8%);
+            padding: 5px 10px;
+        }
+        a {
+            color: @navbarAccentColor;
+        }
+        img {
+            margin-right: 5px;
+        }
+    }
+}
+
+#chat-messages {
+    margin: 20px;
+    .chat-event {
+        text-align: center;
+        margin: 10px 0;
+    }
+    .chat-message {
+        background-color: @white;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0,0,0,.2);
+        .border-radius(6px);
+        .box-shadow(1px 1px 10px rgba(96,96,96,.1));
+        padding: 4px 10px;
+        margin: 10px 0;
+        .time {
+            float: right;
+            font-size: 11px;
+        }
+    }
+    .mdl-chat-my-entry .chat-message {
+        background-color: lighten(@navbarBackgroundHighlight, 75%);
+        .user {
+            font-weight: bold;
+        }
+    }
+}
+
+
+// Miscellaneous
+// -------------------------
+blockquote {
+    text-align: center;
+    /*font-family: Georgia, serif;*/
+    font-size: 18px;
+    /*font-style: italic;*/
+    /*margin: 0.25em 0;*/
+    padding: 5px;
+    line-height: 1.45;
+    position: relative;
+    a {
+        color: @navbarAccentColor;
+    }
+    background-color: #333;
+}
+
+blockquote:before {
+    /*display: block;*/
+    content: "\201C";
+    font-size: 30px;
+    position: relative;
+    left: 65px;
+    /*top: 20px;*/
+    font-family: Georgia, serif;
+    color: white;
+}
+
+blockquote cite {
+    display:inline-block;
+    color: white;
+    font-size: 14px;
+    /*display: block;*/
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5%;
+    /*padding-left: 20px;*/
+    text-align: right;
+}
+
+blockquote img {
+    padding-right: 20px;
+}
+
+.initialbar {
+    a, strong {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
+
+
+// Media specific rules only after this line!
+// (to keep them last in processing the CSS)
+// -------------------------
+@media (min-width: 979px) {
+    .userprofilebox {
+        .profilepicture{
+            position: absolute;
+        }
+        .descriptionbox {
+            margin-left: 120px;
+        }
+    }
+}
+
+@media (max-width: 979px) {
+    .navbar {
+        .navbar-inner a.brand {
+            padding: 5px 5px 5px 20px;
+        }
+    }
+    .nav-collapse {
+        .nav li a {
+            color: @navbarLinkColor;
+            font-weight: normal;
+        }
+        .nav li a:hover,
+        .nav li a:focus,
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus,
+        .dropdown-menu a:active,
+        .dropdown-submenu:hover > a,
+        .dropdown-submenu:focus > a,
+        .dropdown-submenu a:focus,
+        .dropdown-submenu a:hover,
+        .dropdown-submenu a:active,
+        .dropdown-menu li a:hover,
+        .dropdown-menu li a:focus,
+        .dropdown-menu li a:active
+        {
+            color: @navbarLinkColorHover;
+            background-color: @navbarLinkBackgroundHover;
+            background-image: none;
+        }
+    }
+
+    .path-mod-forum .forumheaderlist {
+        thead .header {
+            font-weight: normal;
+            font-size: round(@fontSizeSmall);
+        }
+        .discussion {
+            .author, .replies, .lastpost {
+                font-size: round(@fontSizeSmall);
+            }
+            .replies .unread a {
+                padding: 0;
+            }
+        }
+    }
+    .path-mod-data .box > table > tbody > tr > td {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #page {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+    .navbar-fixed-top {
+        margin-bottom: 3px;
+    }
+    .block-region {
+        margin-top: 20px;
+    }
+    .coursebox {
+        .info {
+            .name {
+                a {
+                    background-position: 0 13px;
+                }
+            }
+        }
+    }
+    .category-browse {
+        .coursebox {
+            .info {
+                .name {
+                    a {
+                        background-position: 0 13px;
+                    }
+                }
+            }
+        }
+    }
 }
